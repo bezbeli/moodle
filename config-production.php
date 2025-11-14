@@ -20,8 +20,8 @@ $CFG->dboptions = array (
 );
 
 // Site
-$CFG->wwwroot   = getenv('WWWROOT') ?: 'https://$FORGE_SITE_NAME';
-$CFG->dataroot  = getenv('DATAROOT') ?: '/home/forge/$FORGE_SITE_NAME/storage/moodledata';
+$CFG->wwwroot   = getenv('WWWROOT') ?: 'https://example.com';
+$CFG->dataroot  = getenv('DATAROOT') ?: dirname(__DIR__) . '/storage/moodledata';
 $CFG->admin     = getenv('ADMIN') ?: 'admin';
 
 // Security and Performance Settings for Production

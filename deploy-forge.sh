@@ -31,16 +31,23 @@ fi
 
 # Create moodledata directory if it doesn't exist
 echo "Setting up moodledata directory..."
-MOODLEDATA_PATH=${DATAROOT}
+MOODLEDATA_PATH=${DATAROOT:-"$FORGE_SITE_PATH/storage/moodledata"}
 if [ ! -d "$MOODLEDATA_PATH" ]; then
     mkdir -p "$MOODLEDATA_PATH"
     echo "Created moodledata directory at $MOODLEDATA_PATH"
+else
+    echo "Moodledata directory already exists at $MOODLEDATA_PATH"
 fi
 
 # Set proper permissions
 echo "Setting proper permissions..."
 chmod -R 755 .
-chmod -R 777 "$MOODLEDATA_PATH"
+if [ -d "$MOODLEDATA_PATH" ]; then
+    chmod -R 777 "$MOODLEDATA_PATH"
+    echo "Set permissions for moodledata directory: $MOODLEDATA_PATH"
+else
+    echo "ERROR: Moodledata directory not found after creation attempt: $MOODLEDATA_PATH"
+fi
 
 # Run Moodle CLI upgrade (if Moodle is already installed)
 echo "Checking for Moodle upgrades..."
