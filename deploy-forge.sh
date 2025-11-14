@@ -14,12 +14,6 @@ cd $FORGE_SITE_PATH
 echo "Pulling latest changes from $FORGE_SITE_BRANCH branch..."
 git pull origin $FORGE_SITE_BRANCH
 
-# Ensure .env file exists (git won't touch it since it's in .gitignore)
-if [ ! -f ".env" ]; then
-    echo "Creating .env file..."
-    touch .env
-fi
-
 # Install/Update Composer dependencies (if any)
 if [ -f "composer.json" ]; then
     echo "Installing Composer dependencies..."
