@@ -17,7 +17,7 @@ git pull origin $FORGE_SITE_BRANCH
 # Install/Update Composer dependencies (if any)
 if [ -f "composer.json" ]; then
     echo "Installing Composer dependencies..."
-    $FORGE_COMPOSER install --no-dev --optimize-autoloader --no-interaction
+    $FORGE_COMPOSER install --no-dev --optimize-autoloader --no-interaction --classmap-authoritative
 fi
 
 # Copy production config file

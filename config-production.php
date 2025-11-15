@@ -18,7 +18,7 @@ function env($key, $default = null) {
 }
 
 // Database
-$CFG->dbtype    = 'mysqli';
+$CFG->dbtype    = 'pgsql';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = env('DB_HOST', 'localhost');
 $CFG->dbname    = env('DB_DATABASE', 'moodle');
@@ -27,9 +27,8 @@ $CFG->dbpass    = env('DB_PASSWORD', '');
 $CFG->prefix    = 'mdl_';
 $CFG->dboptions = array (
   'dbpersist' => 0,
-  'dbport' => (int)env('DB_PORT', 3306),
+  'dbport' => (int)env('DB_PORT', 5432),
   'dbsocket' => '',
-  'dbcollation' => 'utf8mb4_unicode_ci',
 );
 
 // Site
