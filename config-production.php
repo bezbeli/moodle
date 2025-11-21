@@ -38,6 +38,7 @@ $CFG->admin     = env('ADMIN', 'admin');
 
 // Security and Performance Settings for Production
 $CFG->directorypermissions = 0755;
+$CFG->preventexecpath = true;
 
 // Production optimizations
 $CFG->debug = 0;
@@ -46,7 +47,7 @@ $CFG->cachejs = 1;
 $CFG->themedesignermode = 0;
 
 // SSL Configuration
-$CFG->sslproxy = false;
+$CFG->sslproxy = true;
 
 // Optional: Performance settings
 // $CFG->sessioncookiesecure = true;
